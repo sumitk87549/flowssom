@@ -1,2 +1,0 @@
-import { Tabs } from 'expo-router';
-export default function RootLayout(){return <Tabs screenOptions={{headerShown:false,tabBarStyle:{backgroundColor:'#0E1222'}}}><Tabs.Screen name='(tabs)/index' options={{title:'Timer'}}/><Tabs.Screen name='(tabs)/rooms' options={{title:'Rooms'}}/><Tabs.Screen name='(tabs)/stats' options={{title:'Stats'}}/><Tabs.Screen name='(tabs)/settings' options={{title:'Settings'}}/></Tabs>}
