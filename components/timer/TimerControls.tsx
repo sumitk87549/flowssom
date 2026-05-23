@@ -1,0 +1,2 @@
+import { View } from 'react-native'; import HapticButton from '@/components/shared/HapticButton';
+export default function TimerControls({running,onStartPause,onSkip,onReset}:{running:boolean;onStartPause:()=>void;onSkip:()=>void;onReset:()=>void}){return <View style={{gap:10,width:'80%'}}><HapticButton label={running?'Pause':'Start'} onPress={onStartPause}/><HapticButton label='Skip' onPress={onSkip}/><HapticButton label='Reset' onPress={onReset}/></View>}
