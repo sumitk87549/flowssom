@@ -1,0 +1,4 @@
+import { create } from 'zustand';
+export type SessionType='focus'|'shortBreak'|'longBreak';
+interface TimerStore { sessionType:SessionType; isRunning:boolean; remainingSeconds:number; totalSeconds:number; cycle:number; start:(seconds:number,type:SessionType)=>void; pause:()=>void; tick:()=>void; reset:(seconds:number,type?:SessionType)=>void; }
+export const useTimerStore=create<TimerStore>((set)=>({sessionType:'focus',isRunning:false,remainingSeconds:1500,totalSeconds:1500,cycle:0,start:(seconds,type)=>set({isRunning:true,sessionType:type,remainingSeconds:seconds,totalSeconds:seconds}),pause:()=>set({isRunning:false}),tick:()=>set((s)=>({remainingSeconds:Math.max(0,s.remainingSeconds-1),isRunning:s.remainingSeconds>1?s.isRunning:false})),reset:(seconds,type='focus')=>set({remainingSeconds:seconds,totalSeconds:seconds,sessionType:type,isRunning:false})}));
